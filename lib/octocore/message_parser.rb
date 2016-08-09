@@ -1,5 +1,4 @@
 require 'json'
-require 'set'
 
 module Octo
   # Message abstraction module 
@@ -92,6 +91,22 @@ module Octo
       # @return [Hash] Message Hash
       def to_h
         parse(@message)
+      end
+
+      # To get enterprise id
+      # @return [String] Enterprise Id
+      def eid
+        msg = to_json
+        enterprise = msg['enterprise']
+        raise StandardError, 'Parse Error' if enterprise.nil?
+
+        eid = if enterprise.has_key?'custom_id'
+                enterprise['custom_id']
+              elsif enterprise.has_key?'customId'
+                enterprise['customId']
+              end
+
+        eid
       end
       
     end
