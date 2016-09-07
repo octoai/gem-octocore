@@ -13,8 +13,8 @@ module Octo
 
       trendable
 
-      trend_for 'Octo::ProductHit'
-      trend_class 'Octo::Product'
+      trend_for 'Octo::Cassandra::ProductHit'
+      trend_class 'Octo::Cassandra::Product'
     end
   end
 

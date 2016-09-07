@@ -4,9 +4,9 @@ module Octo
   module Cassandra
 
     class UserBrowserDetails
-      include Cequel::Cassandra::Record
+      include Cequel::Record
 
-      belongs_to :user, class_name: 'Octo::User'
+      belongs_to :user, class_name: 'Octo::Cassandra::User'
 
       column :cookieid, :text
       column :name, :text

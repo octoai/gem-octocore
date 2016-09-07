@@ -7,7 +7,7 @@ require 'octocore/config'
 
 
 require 'octocore/models'
-require 'octocore/proxymodels'
+require 'octocore/proxymodel'
 
 require 'octocore/counter'
 require 'octocore/email'

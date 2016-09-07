@@ -71,6 +71,7 @@ module Octo
 
     # Define the class for which trends shall be found
     def trend_for(klass)
+      puts klass
       unless klass.constantize.ancestors.include?Cequel::Record
         raise ArgumentError, "Class #{ klass } does not represent a DB Model"
       else
