@@ -1,15 +1,19 @@
 require 'cequel'
 
 module Octo
-  class User
-    include Cequel::Record
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
 
-    key :id, :bigint
+  module Cassandra
 
-    timestamps
+    class User
+      include Cequel::Record
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    has_many :user_location_histories
+      key :id, :bigint
+
+      timestamps
+
+      has_many :user_location_histories
+    end
   end
 end
 

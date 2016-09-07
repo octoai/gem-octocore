@@ -1,20 +1,24 @@
 require 'cequel'
 
 module Octo
-  class UserProfileDetails
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :user, class_name: 'Octo::User'
+    class UserProfileDetails
+      include Cequel::Record
 
-    key :email, :text
-    column :username, :text
-    column :dob, :text
-    column :gender, :text
-    column :alternate_email, :text
-    column :mobile, :text
-    column :extras, :text
+      belongs_to :user, class_name: 'Octo::Cassandra::User'
 
-    timestamps
+      key :email, :text
+      column :username, :text
+      column :dob, :text
+      column :gender, :text
+      column :alternate_email, :text
+      column :mobile, :text
+      column :extras, :text
+
+      timestamps
+    end
   end
+
 end
 

@@ -1,17 +1,21 @@
 require 'cequel'
 
 module Octo
-  class UserPhoneDetails
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :user, class_name: 'Octo::User'
+    class UserPhoneDetails
+      include Cequel::Record
 
-    key :deviceid, :text
-    column :manufacturer, :text
-    column :model, :text
-    column :os, :text
+      belongs_to :user, class_name: 'Octo::Cassandra::User'
 
-    timestamps
+      key :deviceid, :text
+      column :manufacturer, :text
+      column :model, :text
+      column :os, :text
+
+      timestamps
+    end
   end
+
 end
 

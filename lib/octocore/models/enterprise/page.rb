@@ -1,15 +1,19 @@
 require 'cequel'
 
 module Octo
-  class Page
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class Page
+      include Cequel::Record
 
-    key :routeurl, :text
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    set :categories, :text
-    set :tags, :text
+      key :routeurl, :text
+
+      set :categories, :text
+      set :tags, :text
+    end
   end
+
 end
 

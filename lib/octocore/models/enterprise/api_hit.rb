@@ -5,16 +5,21 @@ require 'octocore/trendable'
 require 'octocore/schedeuleable'
 
 module Octo
-  class ApiHit
-    include Cequel::Record
-    extend Octo::Counter
-    extend Octo::Scheduleable
+  module Cassandra
 
-    COUNTERS = 30
+    class ApiHit
+      include Cequel::Record
+      extend Octo::Counter
+      extend Octo::Scheduleable
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+      COUNTERS = 30
 
-    countables
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
+      countables
+
+    end
   end
+
 end
+

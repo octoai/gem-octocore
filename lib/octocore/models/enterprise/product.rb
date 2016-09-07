@@ -2,21 +2,25 @@ require 'cequel'
 require 'octocore/record'
 
 module Octo
-  class Product
-    include Cequel::Record
-    include Octo::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class Product
+      include Cequel::Record
+      include Octo::Record
 
-    key :id, :bigint
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    column :price, :float
-    column :name, :text
-    column :routeurl, :text
+      key :id, :bigint
 
-    set :categories, :text
-    set :tags, :text
+      column :price, :float
+      column :name, :text
+      column :routeurl, :text
 
-    timestamps
+      set :categories, :text
+      set :tags, :text
+
+      timestamps
+    end
   end
+
 end

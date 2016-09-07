@@ -7,6 +7,8 @@ require 'octocore/config'
 
 
 require 'octocore/models'
+require 'octocore/proxymodels'
+
 require 'octocore/counter'
 require 'octocore/email'
 require 'octocore/utils'
@@ -30,6 +32,8 @@ require 'octocore/stats'
 
 # The main Octo module
 module Octo
+
+  include Octo::ProxyModel
 
   # Connect using the provided configuration. If you want to extend Octo's connect
   #   method you can override this method with your own. Just make sure to make
