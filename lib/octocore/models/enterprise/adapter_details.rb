@@ -2,17 +2,22 @@ require 'cequel'
 require 'octocore/record'
 
 module Octo
-	# Store adapter details of Enterprise
-  class AdapterDetails
-    include Cequel::Record
-    include Octo::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    # Store adapter details of Enterprise
+    class AdapterDetails
+      include Cequel::Record
+      include Octo::Record
 
-    key :adapter_id, :int
-    key :enable, :boolean
-    
-    column :settings, :text
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
+      key :adapter_id, :int
+      key :enable, :boolean
+
+      column :settings, :text
+
+    end
   end
+
 end
+

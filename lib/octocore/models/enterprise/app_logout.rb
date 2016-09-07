@@ -1,12 +1,16 @@
 require 'cequel'
 
 module Octo
-  class AppLogout
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class AppLogout
+      include Cequel::Record
 
-    key :created_at, :timestamp
-    key :userid, :bigint
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
+
+      key :created_at, :timestamp
+      key :userid, :bigint
+    end
   end
+
 end

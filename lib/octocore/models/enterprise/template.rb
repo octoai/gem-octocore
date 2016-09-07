@@ -1,18 +1,22 @@
 require 'cequel'
 
 module Octo
-  class Template
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class Template
+      include Cequel::Record
 
-    key :category_type, :text
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    column :template_text, :text
-    column :active, :boolean
+      key :category_type, :text
 
-    timestamps
+      column :template_text, :text
+      column :active, :boolean
 
+      timestamps
+
+    end
   end
+
 end
 

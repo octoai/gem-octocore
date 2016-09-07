@@ -2,18 +2,20 @@ require 'cequel'
 require 'octocore/trends'
 
 module Octo
+  module Cassandra
 
-  # Class for storing trending tag
-  class TagTrend
-    include Cequel::Record
-    extend Octo::Trends
+    # Class for storing trending tag
+    class TagTrend
+      include Cequel::Record
+      extend Octo::Trends
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    trendable
+      trendable
 
-    trend_for 'Octo::TagHit'
-    trend_class 'Octo::Tag'
+      trend_for 'Octo::Cassandra::TagHit'
+      trend_class 'Octo::Cassandra::Tag'
+    end
   end
 end
 

@@ -1,15 +1,19 @@
 require 'cequel'
 
 module Octo
-  class PushKey
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class PushKey
+      include Cequel::Record
 
-    key :push_type, :bigint
-    column :key, :text
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    timestamps
+      key :push_type, :bigint
+      column :key, :text
+
+      timestamps
+    end
   end
+
 end
 

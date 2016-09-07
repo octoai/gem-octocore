@@ -2,13 +2,18 @@ require 'cequel'
 require 'octocore/record'
 
 module Octo
-  class Category
-    include Cequel::Record
-    include Octo::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class Category
+      include Cequel::Record
+      include Octo::Record
 
-    key :cat_text, :text
-    timestamps
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
+
+      key :cat_text, :text
+      timestamps
+    end
   end
+
 end
+

@@ -3,20 +3,23 @@ require 'octocore/record'
 require 'set'
 
 module Octo
+  module Cassandra
 
-  # The SegmentData class. This class holds data for the segments
-  class SegmentData
+    # The SegmentData class. This class holds data for the segments
+    class SegmentData
 
-    include Cequel::Record
-    include Octo::Record
+      include Cequel::Record
+      include Octo::Record
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    key :segment_slug, :text  # Using key as segment name's slug
+      key :segment_slug, :text  # Using key as segment name's slug
 
-    key :ts, :timestamp    # The timestamp at which data is collected
-    list :value, :float       # List of values containing data collected
+      key :ts, :timestamp    # The timestamp at which data is collected
+      list :value, :float       # List of values containing data collected
 
+    end
   end
+
 end
 

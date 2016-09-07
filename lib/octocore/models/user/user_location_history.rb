@@ -1,15 +1,20 @@
 require 'cequel'
 
 module Octo
-  class UserLocationHistory
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :user, class_name: 'Octo::User'
+    class UserLocationHistory
+      include Cequel::Record
 
-    key :created_at, :timestamp
+      belongs_to :user, class_name: 'Octo::Cassandra::User'
 
-    column :latitude, :float
-    column :longitude, :float
+      key :created_at, :timestamp
+
+      column :latitude, :float
+      column :longitude, :float
+    end
   end
+
+
 end
 

@@ -1,16 +1,20 @@
 require 'cequel'
 
 module Octo
-  class UserBrowserDetails
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :user, class_name: 'Octo::User'
+    class UserBrowserDetails
+      include Cequel::Record
 
-    column :cookieid, :text
-    column :name, :text
-    column :platform, :text
-    column :manufacturer, :text
+      belongs_to :user, class_name: 'Octo::Cassandra::User'
 
-    timestamps
+      column :cookieid, :text
+      column :name, :text
+      column :platform, :text
+      column :manufacturer, :text
+
+      timestamps
+    end
   end
+
 end

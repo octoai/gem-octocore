@@ -3,15 +3,19 @@ require 'octocore/record'
 
 module Octo
 
-  class Plan
+  module Cassandra
 
-    include Cequel::Record
-    include Octo::Record
+    class Plan
 
-    key :id, :int
-    key :active, :boolean
+      include Cequel::Record
+      include Octo::Record
 
-    column :name, :text
+      key :id, :int
+      key :active, :boolean
+
+      column :name, :text
+    end
   end
+
 end
 

@@ -1,14 +1,18 @@
 require 'cequel'
 
 module Octo
-  class PageView
-    include Cequel::Record
+  module Cassandra
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+    class PageView
+      include Cequel::Record
 
-    key :userid,     :bigint
-    key :created_at, :timestamp, order: :desc
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    column :routeurl, :text
+      key :userid,     :bigint
+      key :created_at, :timestamp, order: :desc
+
+      column :routeurl, :text
+    end
   end
+
 end

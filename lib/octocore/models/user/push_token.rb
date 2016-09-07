@@ -1,15 +1,18 @@
 require 'cequel'
 
 module Octo
-  class PushToken
-    include Cequel::Record
 
-    belongs_to :user, class_name: 'Octo::User'
+  module Cassandra
+    class PushToken
+      include Cequel::Record
 
-    key :push_type, :bigint
-    column :pushtoken, :text
+      belongs_to :user, class_name: 'Octo::Cassandra::User'
 
-    timestamps
+      key :push_type, :bigint
+      column :pushtoken, :text
+
+      timestamps
+    end
   end
 end
 

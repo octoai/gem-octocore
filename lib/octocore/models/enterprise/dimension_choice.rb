@@ -2,20 +2,23 @@ require 'cequel'
 require 'octocore/record'
 
 module Octo
+  module Cassandra
 
-  # Choices for dimensions
-  class DimensionChoice
+    # Choices for dimensions
+    class DimensionChoice
 
-    include Cequel::Record
-    include Octo::Record
+      include Cequel::Record
+      include Octo::Record
 
-    belongs_to :enterprise, class_name: 'Octo::Enterprise'
+      belongs_to :enterprise, class_name: 'Octo::Cassandra::Enterprise'
 
-    key :dimension, :int
-    column :choice, :text
+      key :dimension, :int
+      column :choice, :text
 
-    timestamps
+      timestamps
 
+    end
   end
+
 end
 
