@@ -20,10 +20,10 @@ gem 'octocore-cassandra', :git => 'git@github.com:octoai/gem-octocore-cassandra.
 
 ### OctoAdmin CLI
 
-This gem comes with a handy utility called `octocore-admin`. You can use this utility for db migrations, reset and init.
+This gem comes with a handy utility called `octocore-admin-cassandra`. You can use this utility for db migrations, reset and init.
 
 ```bash
-$ octocore-admin action path/to/config/dir
+$ octocore-admin-cassandra action path/to/config/dir
 ```
 
 Where
@@ -36,7 +36,7 @@ Where
 
 ## Clone the repo
 
-`$ git clone git@github.com:octoai/gem-octocore.git`
+`$ git clone git@github.com:octoai/gem-octocore-cassandra.git`
 
 ## Building
 
@@ -55,7 +55,7 @@ $ rake spec
 You can use the following set of commands in `irb` to verify all things working with this gem. Execute it from irb in PROJ_DIR.
 
 ```ruby
-require 'octocore'
+require 'octocore-cassandra'
 config_dir = '/path/to/config/dir'
 Octo.connect_with_config_file config_dir
 ```
@@ -65,5 +65,5 @@ Octo.connect_with_config_file config_dir
 It ships with a utility called `fakestream`. It will automatically stream random data. To use just open your console and type
 
 ```bash
-$ fakestream /path/to/config/dir
+$ fakestream-cassandra /path/to/config/dir
 ```
