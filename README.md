@@ -1,17 +1,17 @@
-# octo-core
+# octocore-cassandra
 
-This is the Octomatic Enterprise Core gem. It provides most of the ORM stuff. Class and modules for different tables.
+This is the Octomatic Enterprise Core gem. It provides most of the ORM stuff for Cassandra. Class and modules for different tables.
 
 ## Installting
 
 ```bash
-gem install octocore
+gem install octocore-cassandra
 ```
 
 In case you are using bundler, you need to add something like this to your Gemfile:
 
 ```ruby
-gem 'octocore', :git => 'git@github.com:octoai/gem-octocore.git'
+gem 'octocore-cassandra', :git => 'git@github.com:octoai/gem-octocore-cassandra.git'
 ```
 
 
