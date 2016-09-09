@@ -3,8 +3,8 @@ require 'yaml'
 require 'redis'
 require 'rspec/core/rake_task'
 
-require 'octocore/helpers/kong_helper'
-require 'octocore/config'
+require 'octocore-cassandra/helpers/kong_helper'
+require 'octocore-cassandra/config'
 
 RSpec::Core::RakeTask.new('spec')
 
