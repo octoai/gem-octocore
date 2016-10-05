@@ -12,7 +12,8 @@ module Octo
 
       define_hooks :after_app_init, :after_app_login, :after_app_logout,
                    :after_page_view, :after_productpage_view, :after_connect,
-                   :after_update_profile, :after_update_push_token, :after_funnel_update
+                   :after_update_profile, :after_update_push_token, :after_funnel_update,
+                   :after_custom
 
       # # Define the after_app_init hook
       # after_app_init do |args|

@@ -44,6 +44,12 @@ module Octo
                     pushToken:    msg['pushToken']
                   })
         end
+
+        if msg['event_name'].startswith?('custom_')
+          m.merge!({
+            msg_json: msg
+            })
+        end
         enterprise = msg['enterprise']
         raise StandardError, 'Parse Error' if enterprise.nil?
 

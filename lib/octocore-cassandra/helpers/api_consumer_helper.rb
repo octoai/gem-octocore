@@ -30,6 +30,8 @@ module Octo
           eventName = msg[:event_name]
           if (valid_events.include?eventName)
             call_hooks(eventName, msg)
+          elsif (eventName.start_with?('custom_'))
+            call_hooks('custom', msg)
           end
         rescue Exception => e  
           puts e.message
